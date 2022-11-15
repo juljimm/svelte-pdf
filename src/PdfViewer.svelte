@@ -230,7 +230,10 @@
 />
 
 {#if showMenu}
-    <div class="fixed bottom-0 w-full py-3 bg-white">
+    <div
+        class="fixed bottom-0 w-screen m-auto pt-1 pb-4 bg-white z-50"
+        style="padding: 0.5em 0 1.5em"
+    >
         <div class="flex gap-6 w-full justify-center">
             {#if showMenuElements.includes("navigation")}
                 <div class="flex items-center">
@@ -574,7 +577,9 @@
         <canvas bind:this={canvas} class="w-full" />
     </div>
 {:else}
-    <div class="pt-3">
-        <canvas bind:this={canvas} />
+    <div class="relative" style="height: {pageHeight - 70}px;">
+        <div style="max-height: 100%; overflow: auto;">
+            <canvas bind:this={canvas} />
+        </div>
     </div>
 {/if}
